@@ -9,9 +9,7 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
 
-	<script defer type='module' src="js/module.js"></script>
-	<!-- <script defer type='module' src="js/view.js"></script>
-	<script defer type='module' src="js/controller.js"></script> -->
+	<script defer type='module' src="js/main.js"></script>
 
 </head>
 
@@ -51,6 +49,8 @@
 						<!-- cart-wrapper -->
 						<div class="cart-wrapper">
 
+							
+
 							<!-- cart-item  -->
 							<div class="cart-item">
 								<div class="cart-item__top">
@@ -65,9 +65,9 @@
 										<div class="cart-item__details">
 
 											<div class="items items--small">
-												<div class="items__control">-</div>
+												<div data-count-button class="items__control">-</div>
 												<div class="items__current">1</div>
-												<div class="items__control">+</div>
+												<div data-count-button class="items__control">+</div>
 											</div>
 
 											<div class="price">
@@ -96,40 +96,9 @@
 										<div class="cart-item__details">
 
 											<div class="items items--small">
-												<div class="items__control">-</div>
+												<div data-count-button class="items__control">-</div>
 												<div class="items__current">1</div>
-												<div class="items__control">+</div>
-											</div>
-
-											<div class="price">
-												<div class="price__currency">230 ₽</div>
-											</div>
-
-										</div>
-										<!-- // cart-item__details -->
-
-									</div>
-								</div>
-							</div>
-							<!-- // cart-item  -->
-
-							<!-- cart-item  -->
-							<div class="cart-item">
-								<div class="cart-item__top">
-									<div class="cart-item__img">
-										<img src="img/roll/philadelphia.jpg" alt="">
-									</div>
-									<div class="cart-item__desc">
-										<div class="cart-item__title">Филадельфия хит ролл</div>
-										<div class="cart-item__weight">6 шт. / 182г.</div>
-
-										<!-- cart-item__details -->
-										<div class="cart-item__details">
-
-											<div class="items items--small">
-												<div class="items__control">-</div>
-												<div class="items__current">1</div>
-												<div class="items__control">+</div>
+												<div data-count-button class="items__control">+</div>
 											</div>
 
 											<div class="price">
