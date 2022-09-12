@@ -1,21 +1,22 @@
 import countRoll from "./Components/countRoll.js";
+import cart from "./cart.js";
 
 // Elements of page
 export const elements = {
     rollList: document.querySelector('[data-rollList]'),
     cartButton: document.querySelectorAll('.card'),
     itemsControl: document.querySelectorAll('.items__control'),
-    countButton: document.querySelector('[data-count-button]')
+    countButton: document.querySelectorAll('[data-count-button]')
 }
 
 // Storage
 export const state = {
     cart: null,
-    markupRollRender: (image, name, amount, weight, price, amountOfDishes) => {
+    markupRollRender: (id, image, name, amount, weight, price, amountOfDishes) => {
         amountOfDishes = amountOfDishes || 1;
         return `<!-- Ролл -->
         <div class="col-md-6">
-            <div class="card mb-4">
+            <div data-id="${id}" class="card mb-4">
                 <img class="product-img" src=${image} alt="">
                 <div class="card-body text-center">
                     <h4 class="item-title">${name}</h5>
@@ -44,6 +45,7 @@ export const state = {
     rollList: [
         {
             name: 'Филадельфия хит ролл',
+            id: '01',
             amount: '6 шт.',
             weight: '180г.',
             price: '300 ₽',
@@ -51,6 +53,7 @@ export const state = {
         },
         {
             name: 'Калифорния темпура',
+            id: '02',
             amount: '6 шт.',
             weight: '205г.',
             price: '250 ₽',
@@ -58,6 +61,7 @@ export const state = {
         },
         {
             name: 'Запеченый ролл «Калифорния»',
+            id: '03',
             amount: '6 шт.',
             weight: '182г',
             price: '230 ₽',
@@ -65,6 +69,7 @@ export const state = {
         },
         {
             name: 'Филадельфия',
+            id: '04',
             amount: '6 шт.',
             weight: '230г',
             price: '320 ₽',
@@ -72,10 +77,10 @@ export const state = {
         },
         
     ],
-    markupCartRoll: (image, name, amount, weight, price, amountOfDishes) => {
+    markupCartRoll: (id, image, name, amount, weight, price, amountOfDishes) => {
         amountOfDishes = amountOfDishes || 1;
         return `<!-- cart-item  -->
-        <div class="cart-item">
+        <div data-id="${id}" class="cart-item">
             <div class="cart-item__top">
                 <div class="cart-item__img">
                     <img src=${image} alt="">
@@ -111,18 +116,18 @@ export const state = {
 export const rollListRender = () => {
     return new Promise ((resolve, reject) => {
         state.rollList.map((el) => {
-            return elements.rollList.insertAdjacentHTML('afterBegin',state.markupRollRender(el.image, el.name, el.amount, el.weight, el.price))
+            return elements.rollList.insertAdjacentHTML('afterBegin',state.markupRollRender(el.id , el.image, el.name, el.amount, el.weight, el.price))
         }), 
         resolve()
     })
 }
 
 // ----------------- Run functions
-const render = async () => {
-    await rollListRender()
-    await countRoll()
-}
-render()
+
+rollListRender()
+countRoll()
+cart()
+
 
 // ----------------- Event listeners
 
