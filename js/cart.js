@@ -1,5 +1,6 @@
 import * as main from './main.js';
 import countRoll from './Components/countRoll.js';
+import totalCost from './totalCost.js';
 
 
 const cart = () => {
@@ -9,6 +10,9 @@ const cart = () => {
 
     // Element cart wrapper
     const cartWrapper = document.querySelector('.cart-wrapper');
+
+    // Element cart
+    const cart = document.querySelector('[data-cart]')
 
      
     // Cart listener
@@ -27,8 +31,6 @@ const cart = () => {
             // Change amount of dishes in cart
             const checkRoll = document.querySelector('.cart-wrapper').querySelector(`[data-id="${info.id}"]`);
 
-            
-            
             // Check - Have that roll in cart?
             if (checkRoll) {
                 // The amount have in cart
@@ -41,6 +43,7 @@ const cart = () => {
                 cartWrapper.insertAdjacentHTML('afterbegin', main.state.markupCartRoll(info.id, info.image, info.name, info.amount, info.weight, info.price, info.amountOfDishes))
             }
            
+            totalCost()
         })
     })
 

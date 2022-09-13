@@ -1,5 +1,6 @@
 import countRoll from "./Components/countRoll.js";
 import cart from "./cart.js";
+import totalCost from "./totalCost.js";
 
 // Elements of page
 export const elements = {
@@ -109,6 +110,41 @@ export const state = {
             </div>
         </div>
         <!-- // cart-item  -->`
+    },
+    markupFullCart: () => {
+        return `<!-- Корзина Полная -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Ваш заказ</h5>
+                
+                <!-- cart-wrapper -->
+                <div class="cart-wrapper">
+
+                    <div class="cart-total">
+                        <p><span class="h5">Доставка:</span> <span class="delivery-cost free">бесплатно</span> </p>
+                        <p><span class="h5">Итого:</span> <span class="total-price">0</span> <span class="rouble">₽</span></p>
+                    </div>
+
+
+                </div>
+                <!-- // cart-wrapper -->
+
+            </div>
+
+            <div class="card-body border-top">
+                <h5 class="card-title">Оформить заказ</h5>
+
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Ваш номер телефона">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Заказать</button>
+                </form>
+
+
+            </div>
+        </div>
+        <!-- // Корзина Полная -->`
     }
 }
 
@@ -127,6 +163,8 @@ export const rollListRender = () => {
 rollListRender()
 countRoll()
 cart()
+totalCost();
+
 
 
 // ----------------- Event listeners

@@ -1,6 +1,8 @@
 import * as main from '../main.js'
+import totalCost from '../totalCost.js';
 
 const countRoll = (props) => {
+    const totalPrice = document.querySelector('.total-price');
 
         window.addEventListener('click', (event, index) => {
 
@@ -11,12 +13,15 @@ const countRoll = (props) => {
                 // Check - is it roll in cart wrapper
                 if (event.target.closest('.cart-wrapper')) {
 
-                    Number(amount.innerText) === 1 && count === '-' ? event.target.closest('[data-id]').remove() : false
+                    Number(amount.innerText) === 1 && count === '-' ? event.target.closest('[data-id]').remove() : false;
+                    totalPrice.innerText = 0
                     
                 }
 
                 count === '-' ? amount.innerText = Number(amount.innerText) - 1 : count === '+' ? amount.innerText = Number(amount.innerText) + 1 : false
                 
+                totalCost()
+
                 amount.innerText < '1' ? amount.innerText = '1' : true ;
             }
         })
