@@ -7,7 +7,7 @@ const totalCost = () => {
     cartItem.forEach((el)=>{
         let amountOfDishes = el.querySelector('.items__current').innerText;
         let cost = el.querySelector('.price__currency').innerText;
-        console.log(Number(amountOfDishes) * Number(cost.split(' ')[0]));
+        // console.log(Number(amountOfDishes) * Number(cost.split(' ')[0]));
         costResult = costResult + (Number(amountOfDishes) * Number(cost.split(' ')[0]))
         totalPrice.innerText = costResult
     })

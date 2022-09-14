@@ -2,30 +2,53 @@ import * as main from '../main.js'
 import totalCost from '../totalCost.js';
 
 const countRoll = (props) => {
-    const totalPrice = document.querySelector('.total-price');
+    
+    window.addEventListener('click', (event, index) => {
 
-        window.addEventListener('click', (event, index) => {
+        // Element cart
+        const cart = document.querySelector('[data-cart]')
 
-            if (event.target.dataset.countButton) {
-                const count = event.target.dataset.countButton;
-                let amount = event.target.closest('.items').querySelector('.items__current');
-                
-                // Check - is it roll in cart wrapper
-                if (event.target.closest('.cart-wrapper')) {
+        // Check if the click was a button 'count'
+        if (event.target.dataset.countButton) {
+            
+            // Event on button
+            const count = event.target.dataset.countButton;
 
-                    Number(amount.innerText) === 1 && count === '-' ? event.target.closest('[data-id]').remove() : false;
-                    totalPrice.innerText = 0
-                    
-                }
-
-                count === '-' ? amount.innerText = Number(amount.innerText) - 1 : count === '+' ? amount.innerText = Number(amount.innerText) + 1 : false
-                
-                totalCost()
-
-                amount.innerText < '1' ? amount.innerText = '1' : true ;
-            }
-        })
+            // We have received an element of amounts of rolls
+            let amount = event.target.closest('.items').querySelector('.items__current');
+            
+            // Check - is it roll in cart wrapper?
+            const deletRollInCart = () => {
+                return new Promise ((resolve, reject) => {
+                    if (event.target.closest('.cart-wrapper')) {
+                        
+                        Number(amount.innerText) === 1 && count === '-' ? 
+                            
+                            event.target.closest('[data-id]').remove()
+                            
+                        : false;
         
-        console.log('Hello from count')
+                    };
+                    resolve()
+                })
+            }
+
+            deletRollInCart().then((res) => {
+                // Hide cart if there are no rolls
+                if (!document.querySelector('.cart-wrapper').querySelector('[data-id]')) {
+                    cart.dataset.cart = 'empty';
+                    cart.innerHTML = main.state.markupCartNull()
+                }
+            })
+
+            // Add or remove roll's quantity(Количество)
+            count === '-' ? amount.innerText = Number(amount.innerText) - 1 : count === '+' ? amount.innerText = Number(amount.innerText) + 1 : false
+            
+            // Run total cost
+            totalCost()
+
+            amount.innerText < '1' ? amount.innerText = '1' : true ;
+        }
+    })
 }
 export default countRoll;

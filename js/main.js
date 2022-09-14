@@ -145,6 +145,18 @@ export const state = {
             </div>
         </div>
         <!-- // Корзина Полная -->`
+    },
+    markupCartNull: () => {
+        return `<!-- Корзина Пустая -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Ваш заказ</h5>
+                <div class="alert alert-secondary" role="alert">
+                    Корзина пуста
+                </div>
+            </div>
+        </div>
+        <!-- // Корзина Пустая -->`
     }
 }
 
