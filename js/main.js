@@ -121,7 +121,7 @@ export const state = {
                 <div class="cart-wrapper">
 
                     <div class="cart-total">
-                        <p><span class="h5">Доставка:</span> <span class="delivery-cost free">бесплатно</span> </p>
+                        <p><span class="h5">Доставка:</span> <span class="delivery-cost">500 ₽</span> </p>
                         <p><span class="h5">Итого:</span> <span class="total-price">0</span> <span class="rouble">₽</span></p>
                     </div>
 
