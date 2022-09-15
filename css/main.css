@@ -66,7 +66,7 @@ h3, h4 {
 
 /* items--small */
 .items.items--small {
-	width: 90px;
+	width: 88px;
 	font-size: 16px;
 	height: 26px;
 	text-align: center;
@@ -155,8 +155,8 @@ h3, h4 {
 }
 
 .cart-item__details .price__currency {
-	font-size: 18px;
-	margin-left: 15px;
+	font-size: 14px;
+	margin-left: 10px;
 }
 
 .cart-total {

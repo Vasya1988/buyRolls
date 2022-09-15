@@ -74,7 +74,9 @@ const cart = () => {
                 
                     totalCost()
                 }
+                event.target.closest('[data-id]').querySelector('.items__current').innerText = '1'
             }
+            
         })
 }
 export default cart;
