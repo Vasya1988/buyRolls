@@ -24,24 +24,23 @@ const countRoll = (props) => {
                         
                         Number(amount.innerText) === 1 && count === '-' ? 
                             
-                            {
-                                oneStep: 
-                                    event.target.closest('[data-id]').remove(),
-
-                                secondStep: 
-                                    event.target.closest('.cart-wrapper') === null ? 
-                                        {
-                                            onStep: cart.dataset.cart = 'empty',
-                                            secondStep: cart.innerHTML = main.state.markupCartNull()
-                                        }
-                                    : false
-                            } 
+                            event.target.closest('[data-id]').remove()
+ 
                         : false;  
                     };
                     resolve()
                 })
             }
-            deletRollInCart()
+            deletRollInCart().then((e) => {
+                // console.log('Then --> ', )
+                document.querySelector('.cart-wrapper').querySelector('[data-id]') === null ?
+                    {
+                        onStep: cart.dataset.cart = 'empty',
+                        secondStep: cart.innerHTML = main.state.markupCartNull()
+                    }
+                    : true
+                
+            })
 
             // Add or remove roll's quantity(Количество)
             count === '-' ? amount.innerText = Number(amount.innerText) - 1 : count === '+' ? amount.innerText = Number(amount.innerText) + 1 : false
